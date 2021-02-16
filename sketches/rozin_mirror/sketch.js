@@ -4,6 +4,10 @@ let capture;
 let mic;
 let stepSize;
 
+function enable() {
+  getAudioContext().resume();
+}
+
 function setup() {
   let c = createCanvas(w, h);
   c.parent("#sketch-parent");
@@ -18,9 +22,9 @@ function setup() {
   
   mic = new p5.AudioIn();
   mic.start();
-  button = createButton("start mic");
-  button.mouseClicked(getAudioContext().resume());
 
+  button = createButton("enable mic");
+  button.mouseClicked(enable());
 }
 
 function draw() {
