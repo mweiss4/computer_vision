@@ -5,7 +5,9 @@ let mic;
 let stepSize;
 
 function setup() {
-  createCanvas(w, h);
+  let c = createCanvas(w, h);
+  c.parent("#sketch-parent");
+
   pixelDensity(1);
   
   frameRate(30);
