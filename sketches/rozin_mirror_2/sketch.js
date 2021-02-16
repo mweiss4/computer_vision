@@ -41,7 +41,7 @@ function draw() {
       push(); // mirror output
         translate(capture.width - 2, -5);
         scale(-1, 1);
-        line (x, y, x - size, y + size);
+        line (x, y, x - size, y - size);
       pop();
       
     }
