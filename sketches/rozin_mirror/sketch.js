@@ -18,7 +18,8 @@ function setup() {
   
   mic = new p5.AudioIn();
   mic.start();
-  
+  getAudioContext().resume();
+
 }
 
 function draw() {
@@ -66,7 +67,6 @@ function draw() {
         translate(capture.width - 2, 4);
         scale(-1, 1);
         line (x, y, x - size, y + size);
-        // line (x, y, x + size, y + size);
       pop();
 
     }

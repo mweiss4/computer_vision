@@ -31,7 +31,7 @@ function draw() {
       let b = capture.pixels[index + 2];
       let c = color(r + 10, g, b + 35);
       
-      let colorTotal = map((r + g + b), 0, 765, 2, 6);
+      let colorTotal = map((r + g + b), 0, 765, 6, 2);
       let brightness = (r + g + b) / 3;
       let size = map(brightness, 0, 255, 0, stepSize * 1.2);
 
@@ -41,7 +41,7 @@ function draw() {
       push(); // mirror output
         translate(capture.width - 2, -5);
         scale(-1, 1);
-        line (x, y, x - size, y - size);
+        line (x, y, x - size, y + size);
       pop();
       
     }
