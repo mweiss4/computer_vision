@@ -18,7 +18,8 @@ function setup() {
   
   mic = new p5.AudioIn();
   mic.start();
-  getAudioContext().resume();
+  button = createButton("start mic");
+  button.mouseClicked(getAudioContext().resume());
 
 }
 
