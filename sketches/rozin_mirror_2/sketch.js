@@ -31,9 +31,9 @@ function draw() {
       let b = capture.pixels[index + 2];
       let c = color(r + 10, g, b + 35);
       
-      let colorTotal = map((r + g + b), 0, 765, 8, 0);
+      let colorTotal = map((r + g + b), 0, 765, 2, 6);
       let brightness = (r + g + b) / 3;
-      let size = map(brightness, 0, 255, 0, stepSize * 1.5);
+      let size = map(brightness, 0, 255, 0, stepSize * 1.2);
 
       stroke(c);
       strokeWeight(colorTotal);
