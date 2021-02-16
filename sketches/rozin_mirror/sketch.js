@@ -1,16 +1,10 @@
 let w = 352;
 let h = 240;
 let capture;
-
-
-// let totalR = 0;
-// let totalG = 0;
-// let totalB = 0;
+let mic;
+let stepSize;
 
 function setup() {
-  let c = createCanvas(w, h);
-  c.parent("#sketch-parent");
-
   createCanvas(w, h);
   pixelDensity(1);
   
@@ -20,39 +14,39 @@ function setup() {
   capture.size(w, h);
   capture.hide();
   
-//   for(let y = 0; y < capture.height; y++) {
-//     for(let x = 0; x < capture.width; x++) {
-//       const index = (x + y * capture.width) * 4;
-      
-//       let pixelCount = capture.width * capture.height;
-      
-//       r = capture.pixels[index];
-//       g = capture.pixels[index+1];
-//       b = capture.pixels[index+2];
-      
-//       totalR = totalR + r;
-//       totalG = totalG + g;
-//       totalB = totalB + b;
-      
-//       background(totalR / pixelCount, totalG / pixelCount, totalB / pixelCount);
-//     }
-//   }
+  mic = new p5.AudioIn();
+  mic.start();
   
 }
 
 function draw() {
-  
-  // background
-  background(255);
+
+  background(230);
   
   capture.loadPixels();
-  let stepSize = 8;
+  let vol = mic.getLevel();
+  let mod;
   
-  // let threshold = constrain(tRange, 0, 255);
-  // above can be avoided using a boolean operator at the end of map();
+  if (mod > 0) {
+    mod = mod - 0.001;
+  } else {
+    if (vol < 0.02) {
+      mod = 0;
+    } else {
+      mod = 6;  
+    }
+  }
+    
+  // if (vol < 0.02) {
+  //   mod = 0; 
+  // } else {
+  //   mod = map(vol, 0.02, 0.4, 4, 8);
+  // }
   
-  for (let y = -50; y < capture.height + 50; y += stepSize) {
-    for (let x = -50; x < capture.width + 50; x += stepSize) {
+  stepSize = 12 - round(mod);
+  
+  for (let y = 0; y < capture.height; y += stepSize) {
+    for (let x = 0; x < capture.width; x += stepSize) {
       const index = (x + y * capture.width) * 4;
 
       let r = capture.pixels[index];
@@ -61,20 +55,17 @@ function draw() {
       let c = color(r + 10, g, b + 35);
       
       let colorTotal = map((r + g + b), 0, 765, 8, 0);
-      let brightness = (r + g + b) / 3;
-      let size = map(brightness, 0, 255, 0, stepSize * 1.5);
+      let size = map(vol, 0, 0.4, 2, 10);
 
-      // fill(c);
       stroke(c);
       strokeWeight(colorTotal);
       
       push(); // mirror output
-        translate(capture.width - 2, -5);
+        translate(capture.width - 2, 4);
         scale(-1, 1);
         line (x, y, x - size, y + size);
+        // line (x, y, x + size, y + size);
       pop();
-      
-      // rect(x, y, size, size);
 
     }
   }
