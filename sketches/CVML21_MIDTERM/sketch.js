@@ -83,39 +83,39 @@ function setup() {
     textSize(11);
     textAlign(LEFT);
   
-    saveButton = createButton('Save');
+    saveButton = c.createButton('Save');
     saveButton.size(60, 25);
     saveButton.position(410, 375);
     saveButton.mousePressed(saveImg);
 
-    playButton = createButton('▶ / ❚❚');
+    playButton = c.createButton('▶ / ❚❚');
     playButton.size(60, 25);  
     playButton.position(410, 345);
     playButton.mousePressed(playPause);
   
-    clearButton = createButton('Clear');
+    clearButton = c.createButton('Clear');
     clearButton.size(60, 25);
     clearButton.position(475, 345);
     clearButton.mousePressed(clearStroke);
     
-    resetButton = createButton('Reset');
+    resetButton = c.createButton('Reset');
     resetButton.size(60, 25);
     resetButton.position(475, 375);
     resetButton.mousePressed(reset);
     
-    accSlider = createSlider(0.1, 0.5, 0.1, 0);
+    accSlider = c.createSlider(0.1, 0.5, 0.1, 0);
     accSlider.position(407, 15);
     accSlider.style('width', '100px');
   
-    strokeSliderMin = createSlider(0.5, 10, 0.5, 0);
+    strokeSliderMin = c.createSlider(0.5, 10, 0.5, 0);
     strokeSliderMin.position(407, 75);
     strokeSliderMin.style('width', '100px');
   
-    strokeSliderMax = createSlider(0.5, 10, 5, 0);
+    strokeSliderMax = c.createSlider(0.5, 10, 5, 0);
     strokeSliderMax.position(407, 95);
     strokeSliderMax.style('width', '100px');
   
-    segSlider = createSlider(50, 2400, 800, 50);
+    segSlider = c.createSlider(50, 2400, 800, 50);
     segSlider.position(407, 155);
     segSlider.style('width', '100px');
   
