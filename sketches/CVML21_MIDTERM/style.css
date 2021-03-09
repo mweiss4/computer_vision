@@ -14,7 +14,14 @@ canvas {
   transform: translate(-50%, -50%);
 }
 
-#buttonsNshit {
+#sketch-parent button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#sketch-parent slider {
   position: absolute;
   left: 50%;
   top: 50%;

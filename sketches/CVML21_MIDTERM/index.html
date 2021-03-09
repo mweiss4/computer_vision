@@ -10,23 +10,5 @@
 <body>
   <script src="sketch.js"></script>
   <div id="sketch-parent"></div>
-  <div id ="buttonsNshit">
-    <script>
-      let sketch = function(p) {
-        p.setup = function(){
-          p.createCanvas(600, 400);
-          p.background(0, 0, 0, 0);
-        }
-      };
-      new p5(sketch, window.document.getElementById('saveButton'));
-      new p5(sketch, window.document.getElementById('clearButton'));
-      new p5(sketch, window.document.getElementById('resetButton'));
-      new p5(sketch, window.document.getElementById('playButton'));
-      new p5(sketch, window.document.getElementById('accSlider'));
-      new p5(sketch, window.document.getElementById('strokeSliderMin'));
-      new p5(sketch, window.document.getElementById('strokeSliderMax'));
-    </script>
-  </div>
-
 </body>
 </html>
